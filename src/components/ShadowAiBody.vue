@@ -8,12 +8,12 @@
             id="canvas"
             class="text-center"
             width=80%
-            height=100%
+            height=97%
         >
             <v-card @drop.prevent="drop" @dragover.prevent @dragleave.prevent
                 id="dropzone"
                 :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
-                height=90%
+                height=97%
                 ripple
                 v-show="!$store.state.isExecuted"
             >
@@ -28,13 +28,14 @@
                 <v-container v-show="$store.state.isFileLoaded">
                     <v-carousel
                         v-model="currentIndex"
-                        height=768px
+                        height=700
                     >
                         <v-carousel-item
                             v-for="(item,i) in $store.state.fileUrlList"
                             :key="i"
-                            :src="item"
-                        ></v-carousel-item>
+                        >
+                            <v-img :src="item" contain max-height="500"></v-img>
+                        </v-carousel-item>
                     </v-carousel>
                     <v-btn @click="fileopen">파일 변경</v-btn>
                     <v-btn @click="filedelete">파일 삭제</v-btn>
