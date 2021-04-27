@@ -5,7 +5,7 @@ import {store} from './store';
 import axios from 'axios'
 
 Vue.config.productionTip = false
-axios.defaults.baseURL= 'http://192.168.50.150:8080'
+axios.defaults.baseURL= '52.79.227.34:80'
 
 new Vue({
   vuetify,
