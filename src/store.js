@@ -236,7 +236,7 @@ export const store= new Vuex.Store({
                 console.error(error);
             });
 
-            const request=await axios.post('http://localhost:8080/api/images',context.state.UploadRequest)
+            const request=await axios.post('/api/images',context.state.UploadRequest)
             .then(response=>{
                 if (response.status===201){
                     context.state.batchid=response.data.id;
@@ -254,7 +254,7 @@ export const store= new Vuex.Store({
                 }
             })
               
-            await axios.post('http://localhost:8080/api/orders/'+context.state.batchid+'/conv', request)
+            await axios.post('/api/orders/'+context.state.batchid+'/conv', request)
             .then(response=>{
                 if (response.status===200){
                     context.commit('updateConvertedFile',response.data.result);
